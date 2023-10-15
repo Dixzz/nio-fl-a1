@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "198222787606",
+    "project_id": "innovex-311512",
+    "storage_bucket": "innovex-311512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198222787606:android:367cef404924edbb7db137",
+        "android_client_info": {
+          "package_name": "com.example.nio_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198222787606-8o9o5lv2lb9k26hm800j0iqdkb8ha69l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nio_demo",
+            "certificate_hash": "656f8d22fa12e379f99f99be0e5500d2f55ea48c"
+          }
+        },
+        {
+          "client_id": "198222787606-k6ggihhdto5nqs4keovg7481d2a5u9su.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF-vUoVM3OiBLcSCCE0ooo-1ta4d8cxOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198222787606-h2ok4nda5jhpq5hllpo6ui2kbficclq6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
