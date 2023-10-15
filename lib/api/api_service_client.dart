@@ -9,14 +9,14 @@ part 'api_service_client.g.dart';
 abstract class ApiServiceClient {
   factory ApiServiceClient(Dio dio, {String? baseUrl}) = _ApiServiceClient;
 
-  @GET('beers')
+  @GET('/beers')
   Future<List<BrewItem>?> getAllBeers(
     @Query('page') int page,
     // @Query('per_page') String perPage,
   );
 
 
-  @GET('beers/{id}')
+  @GET('/beers/{id}')
   Future<List<BrewItemDetailed>?> getBeerDetail(
     @Path('id') int id,
   );

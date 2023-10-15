@@ -32,7 +32,7 @@ class _ApiServiceClient implements ApiServiceClient {
     )
             .compose(
               _dio.options,
-              'beers',
+              '/beers',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -57,7 +57,7 @@ class _ApiServiceClient implements ApiServiceClient {
     )
             .compose(
               _dio.options,
-              'beers/${id}',
+              '/beers/${id}',
               queryParameters: queryParameters,
               data: _data,
             )

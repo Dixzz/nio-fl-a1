@@ -26,7 +26,6 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
     pagingController.addPageRequestListener(fetchBeers);
   }
 
@@ -42,7 +41,6 @@ class _HomeState extends State<Home> {
     final pageKey = pageKeyTemp ??
         pagingController.nextPageKey ??
         pagingController.firstPageKey;
-
 
     final newItems = (await widget.client.getAllBeers(pageKey)) ?? List.empty();
     final isLastPage = newItems.isEmpty && pageKey > 0;
@@ -148,8 +146,8 @@ class _HomeState extends State<Home> {
                             child: ColoredBox(
                               color: Colors.black,
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 4),
                                 child: FittedBox(
                                   child: Text(
                                     "First brewed ${item.firstBrewed}",

@@ -16,7 +16,7 @@ class LoggingPathInterceptor extends Interceptor {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     logit(
-        'RESPONSE[${response.statusCode}] <= URL: ${response.requestOptions.baseUrl + response.requestOptions.path}'
+        'RESPONSE[${response.statusCode}] <= URL: ${response.statusCode} ${response.requestOptions.baseUrl + response.requestOptions.path}'
         '\nTYPE: ${response.requestOptions.responseType.name}'
         '\nQUERY:${response.requestOptions.queryParameters}'
         '\nBODY: ${jsonEncode(response.data)}'
