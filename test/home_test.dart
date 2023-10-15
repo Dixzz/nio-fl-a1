@@ -8,7 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:nio_demo/api/api_service_client.dart';
 import 'package:nio_demo/api/url.dart';
-import 'package:nio_demo/components/beer_detail.dart';
+import 'package:nio_demo/components/home/beer_detail.dart';
 import 'package:nio_demo/components/home/home.dart';
 import 'package:nio_demo/components/home/models/brew_model.dart';
 import 'package:nio_demo/tools/logging_interceptor.dart';

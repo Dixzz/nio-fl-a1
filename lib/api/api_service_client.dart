@@ -1,8 +1,8 @@
-import 'package:nio_demo/components/home/cubit/home_cubit.dart';
+import 'package:dio/dio.dart';
 import 'package:nio_demo/components/home/models/brew_detail_model.dart';
 import 'package:nio_demo/components/home/models/brew_model.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:dio/dio.dart';
+
 part 'api_service_client.g.dart';
 
 @RestApi()

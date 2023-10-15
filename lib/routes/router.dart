@@ -2,10 +2,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nio_demo/components/beer_detail.dart';
+import 'package:nio_demo/components/auth/login.dart';
+import 'package:nio_demo/components/auth/profile.dart';
+import 'package:nio_demo/components/home/beer_detail.dart';
 import 'package:nio_demo/components/home/home.dart';
-import 'package:nio_demo/components/login.dart';
-import 'package:nio_demo/components/profile.dart';
 import 'package:nio_demo/di/app_module.dart';
 import 'package:nio_demo/pref/ipreference_helper.dart';
 import 'package:nio_demo/tools/context.dart';

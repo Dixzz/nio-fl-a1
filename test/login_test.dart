@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_sign_in_platform_interface/google_sign_in_platform_interface.dart';
 import 'package:mockito/mockito.dart';
-import 'package:nio_demo/components/login.dart';
+import 'package:nio_demo/components/auth/login.dart';
 import 'package:nio_demo/di/app_module.dart';
 import 'package:nio_demo/main.dart';
 import 'package:nio_demo/pref/ipreference_helper.dart';

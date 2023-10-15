@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nio_demo/api/api_service_client.dart';
 import 'package:nio_demo/api/url.dart';
+import 'package:nio_demo/components/auth/auth_repo.dart';
 import 'package:nio_demo/di/app_module.config.dart';
 import 'package:nio_demo/pref/ipreference_helper.dart';
 import 'package:nio_demo/pref/ipreference_helper_impl.dart';
@@ -21,6 +22,10 @@ configureDependencies() => $initGetIt(locator);
 
 @module
 abstract class AppModule {
+
+  @lazySingleton
+  AuthRepository provideAuthRepo() => AuthRepository();
+
   @lazySingleton
   Dio provideUserDio() {
     final dio = Dio(BaseOptions()

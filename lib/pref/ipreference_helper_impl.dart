@@ -33,7 +33,6 @@ class IPreferenceHelperImpl implements IPreferenceHelper {
   @override
   Future<void> logout() async {
     await _preferences.clear();
-    await GoogleSignIn().signOut();
   }
 }
 

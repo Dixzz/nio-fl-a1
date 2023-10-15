@@ -9,7 +9,7 @@ import 'package:nio_demo/tools/context.dart';
 import 'package:nio_demo/tools/sized_box.dart';
 import 'package:nio_demo/widgets/appbar_action.dart';
 
-import '../api/api_service_client.dart';
+import '../../api/api_service_client.dart';
 
 class BeerDetail extends StatelessWidget {
   final int _id;

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:nio_demo/components/auth/auth_repo.dart';
 import 'package:nio_demo/di/app_module.dart';
 import 'package:nio_demo/gen/assets.gen.dart';
-import 'package:nio_demo/models/user.dart';
-import 'package:nio_demo/pref/ipreference_helper.dart';
 import 'package:nio_demo/routes/router.dart';
 import 'package:nio_demo/tools/asset_image_gen.dart';
 import 'package:nio_demo/tools/cards.dart';
@@ -12,33 +10,7 @@ import 'package:nio_demo/tools/sized_box.dart';
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
 
-  IPreferenceHelper get _pref => locator.get();
-
-  Future<void> _handleSignIn(BuildContext context) async {
-    final GoogleSignIn googleSignIn = GoogleSignIn(
-      scopes: [
-        'email',
-      ],
-    );
-    final user = googleSignIn.currentUser;
-    if (user == null) {
-      _setUser(await googleSignIn.signIn(), context);
-      // try {
-      //   _setUser(await googleSignIn.signIn(), context);
-      // } catch (error) {
-      //   logit(error);
-      // }
-    } else {
-      _setUser(user, context);
-    }
-  }
-
-  void _setUser(GoogleSignInAccount? user, BuildContext context) {
-    if (user == null || !context.mounted) return;
-    _pref.setUserObject(user);
-    RouteNames.home.navigate(context);
-  }
-
+  AuthRepository get _authRepository => locator.get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +31,12 @@ class Login extends StatelessWidget {
               ),
               const SpaceVertical(24),
               InkWell(
-                onTap: () => _handleSignIn(context),
+                onTap: () async {
+                  if (await _authRepository.handleAuth(context) && context.mounted) {
+                    RouteNames.home.navigate(context);
+                  }
+                },
+                // onTap: () => _handleSignIn(context),
                 child: RoundedCard(
                     child: ConstrainedBox(
                         child: Padding(

@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nio_demo/gen/assets.gen.dart';
 
 extension AssetGenImageExt on AssetGenImage {

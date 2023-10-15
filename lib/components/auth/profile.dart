@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:nio_demo/components/auth/auth_repo.dart';
 import 'package:nio_demo/di/app_module.dart';
 import 'package:nio_demo/pref/ipreference_helper.dart';
 import 'package:nio_demo/tools/context.dart';
@@ -7,10 +8,12 @@ import 'package:nio_demo/tools/sized_box.dart';
 import 'package:nio_demo/widgets/appbar_action.dart';
 import 'package:nio_demo/widgets/symmetric_loader.dart';
 
-import '../routes/router.dart';
+import '../../routes/router.dart';
 
 class Profile extends StatelessWidget {
   IPreferenceHelper get pref => locator.get();
+
+  AuthRepository get _authRepository => locator.get();
 
   const Profile({Key? key}) : super(key: key);
 
@@ -86,7 +89,6 @@ class Profile extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-
                             SpaceVertical(40),
                             Text(
                               'Name',
@@ -106,7 +108,8 @@ class Profile extends StatelessWidget {
                                 decoration: InputDecoration(
                                   // isDense: true,
                                   filled: true,
-                                  contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 20),
                                   focusedBorder: InputBorder.none,
                                   fillColor: Color(0xFFEEEEEE),
                                   border: OutlineInputBorder(
@@ -132,7 +135,8 @@ class Profile extends StatelessWidget {
                                 decoration: InputDecoration(
                                   // isDense: true,
                                   filled: true,
-                                  contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 20),
                                   focusedBorder: InputBorder.none,
                                   fillColor: Color(0xFFEEEEEE),
                                   border: OutlineInputBorder(
@@ -144,9 +148,10 @@ class Profile extends StatelessWidget {
                             SpaceVertical(70),
                             ElevatedButton(
                               onPressed: () async {
-                                await pref.logout();
-                                if (!context.mounted) return;
-                                RouteNames.login.navigate(context);
+                                if (await _authRepository.logout() &&
+                                    context.mounted) {
+                                  RouteNames.login.navigate(context);
+                                }
                               },
                               child: Text("Logout"),
                               style: ElevatedButton.styleFrom(
